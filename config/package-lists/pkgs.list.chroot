@@ -1,0 +1,69 @@
+#====basic system====#
+
+# system
+sudo
+pciutils
+curl
+fwupd
+fwupd-amd64-signed
+
+# wm
+xorg
+xfce4
+xfce4-goodies
+
+# network, audio
+network-manager
+pulseaudio
+pavucontrol
+
+# volume plugin
+xfce4-pulseaudio-plugin
+
+# network plugin
+network-manager-gnome
+
+# system info
+htop
+neofetch
+
+# text editors
+micro
+vim
+
+# gnome software
+gnome-software
+gnome-software-plugin-flatpak
+
+# pkg manager
+flatpak
+
+# cursor
+breeze-cursor-theme
+
+# color choser
+gcolor3
+
+# dock
+plank
+
+# videoplayer
+parole
+
+#====Programming languages====#
+
+# python
+python3-pip
+
+# java
+openjdk-11-jdk
+
+# C/C++ compiler
+gcc
+
+# php
+php-common
+libapache2-mod-php
+php-cli
+php-mysql
+php-curl

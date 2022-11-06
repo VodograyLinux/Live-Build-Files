@@ -1,0 +1,49 @@
+mkdir -p /etc/apt/{sources.list.d,trusted.gpg.d}
+    curl -o /etc/apt/trusted.gpg.d/liquorix-keyring.gpg \
+        'https://liquorix.net/liquorix-keyring.gpg'
+    echo ""
+    apt-get install apt-transport-https lsb-release -y
+
+    repo_file="/etc/apt/sources.list.d/liquorix.list"
+    repo_code="$(lsb_release -cs)"
+    echo "deb [arch=amd64] https://liquorix.net/debian $repo_code main"      > $repo_file
+    echo "deb-src [arch=amd64] https://liquorix.net/debian $repo_code main" >> $repo_file
+
+    apt-get update -y
+    apt-get install -y linux-image-liquorix-amd64 linux-headers-liquorix-amd64
+    apt install init
+    apt --purge remove linux-image-5.10.0-15-amd64
+
+
+
+apt install flatpak -y
+
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+
+flatpak install flathub org.mozilla.firefox -y
+
+flatpak install flathub org.gimp.GIMP -y
+flatpak install flathub org.inkscape.Inkscape -y
+flatpak install flathub org.blender.Blender -y
+flatpak install flathub org.kde.krita -y
+
+flatpak install flathub org.audacityteam.Audacity -y
+flatpak install flathub io.lmms.LMMS -y
+
+flatpak install flathub org.kde.kdenlive -y
+
+flatpak install flathub com.obsproject.Studio -y
+
+flatpak install flathub org.libreoffice.LibreOffice -y
+
+flatpak install flathub com.vscodium.codium -y
+
+apt remove desktop-base -y
+
+apt autoremove -y
+
+gtk-update-icon-cache /usr/share/icons/Flat-Remix-Green-Dark/
+
+flatpak override --filesystem=home
+
+flatpak override --env=GTK_THEME=vimix-dark-compact-beryl

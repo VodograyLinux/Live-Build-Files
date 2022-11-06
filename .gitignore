@@ -1,0 +1,4 @@
+config/includes.chroot_before_packages/etc/skel/.themes/
+
+config/includes.chroot_before_packages/usr/share/icons/
+config/includes.chroot_before_packages/usr/share/themes/
